@@ -11,6 +11,11 @@ const handleSubmit = (e)=>{
   setTareas([...tareas, tarea]);
   // limpiar el input
   setTarea('');
+};
+
+const borrarTarea = (nombreTarea) =>{
+  let copiaTareas = tareas.filter((itemTarea)=> itemTarea !== nombreTarea);
+  setTareas(copiaTareas);
 }
 
   return (
@@ -21,7 +26,7 @@ const handleSubmit = (e)=>{
         <Button variant="primary" type="submit">Agregar</Button>
       </Form.Group>
     </Form>
-    <ListaTareas tareas={tareas}></ListaTareas>
+    <ListaTareas tareas={tareas} borrarTarea={borrarTarea}></ListaTareas>
     </>
   );
 };
